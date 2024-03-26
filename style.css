@@ -1,0 +1,182 @@
+body{
+    margin:0;
+    font-family:Helvetica,sans-serif; 
+}
+
+header nav{
+    overflow: hidden;
+    background-color: #e6b325;
+    font-family:  Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 20px;
+    position: fixed; 
+    top: 0; 
+    width: 100%;
+    text-align: right;
+
+
+}
+header .input{
+    background-color:rgb(217, 202, 69,0.5);
+    border:2px solid rgb(99, 81, 81);
+    border-radius: 5px;
+    padding:7px;
+    width:300px;
+
+}
+nav a{
+   position:relative;
+   font-size: 1.1em;
+    color :black;
+    
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 90px;
+    margin-right: 40px;
+}
+.navigation a::after{
+    content:'';
+    position :  absolute;
+    left:0;
+    bottom:-6px;
+    width:100%;
+    height:3px;
+    background: #fff;
+    border-radius: 100px;
+    transform: scaleX(0);
+    transition: transform .5s;
+  
+}
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+
+/*header img{
+    border-radius: 0px 0px 100px;
+    padding:30px;
+    margin-top: 100px;
+}*/
+.heading{
+    
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: -30px;
+
+}
+.handloom img{
+    width : 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 120px;
+    margin-left: 10px;
+    padding: 10px;
+   border : 2px solid #e6b325;
+   border-radius: 20px;
+   box-shadow: 2px 2px #e88a31;
+
+}
+.handloom img:hover{
+    cursor: pointer;
+    box-shadow: 6px 6px 0px 0px;
+
+}
+.name{
+    display: flex;
+    padding-left: 510px;
+    font-style:bold;
+    font-weight: bold;
+}
+.name .name2{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 160px;
+    padding-bottom: 10px;
+}
+.tagline .a{
+      
+       display: inline-block;
+       width:450px;
+        padding-left: 200px;
+        border-width:1px;
+        font-size: 20px;
+        padding-top:50px
+    }
+    .tagline .b{
+        width:450px;
+       padding-left: 1000px;
+        border-color:#ffffff;
+        border-width:1px;
+        font-size: 20px
+        
+    }
+    .tagline .c{
+        width:450px;
+       padding-left: 200px;
+        border-color:#ffffff;
+        border-width:1px;
+        font-size: 20px
+        
+    }
+    .tagline .d{
+        width:450px;
+       padding-left: 1000px;
+        border-color:#ffffff;
+        border-width:1px;
+        font-size: 20px
+        
+    }
+    .sharmi{
+        margin-top: 100px;
+    }
+
+    .foot {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 5px;
+        background-color:#e6b325;
+        color: white;
+        text-align: center;
+      }
+      .gallery{
+        width:900px;
+        display: flex;
+        overflow-x:scroll;
+      }
+      .gallery div{
+        width:100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap:20px;
+        padding:10px;
+        flex:none;
+      }
+      .gallery div img{
+        width:250px;
+        height:350px;
+        margin-top:-61px;
+    border-radius: 0px 0px 25% 0px;
+        transition: transform 0.5s;
+
+      }
+      .gallery::-webkit-scrollbar{
+        display:none;
+      }
+
+      .gallery-wrap{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10% auto;
+      }
+      #backbtn ,#nextbtn{
+        width:50px;
+        cursor: pointer;
+        margin:40px;
+      }
+      .gallery div img:hover{
+        cursor:pointer;
+        transform: scale(1.1);
+      }

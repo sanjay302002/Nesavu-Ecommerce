@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <style>
+    /* Add your CSS styling here */
+    *{
+    margin:0;
+    padding: 0;
+    font-family:Helvetica,sans-serif;
+}
+
+
+   nav a{
+       display:inline;
+       color :black;
+       padding : 60px;
+       text-decoration: none;
+     
+   
+   }
+      body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      background:#f9f9f9;
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      max-width: 900px;
+      background-color: #f9f9f9;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .cart {
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+    
+    .payment {
+      flex-basis: 300px;
+      margin-top: 100px;
+      margin-right: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #000000;
+    }
+    
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+    }
+    
+    .cart-item .item-details {
+      flex-grow: 1;
+    }
+    
+    .cart-item .item-name {
+      font-weight: bold;
+    }
+    
+    .cart-item .item-price {
+      color: #888;
+    }
+    
+    .cart-item .item-quantity input {
+      width: 50px;
+    }
+    
+    .cart-total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+    }
+    
+    .payment-page {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+    
+    .payment-page label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .payment-page input[type="text"],
+    .payment-page input[type="number"],
+    .payment-page select {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    .payment-page button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .payment-methods img {
+      width: 50px;
+      margin: 10px;
+    }
+    a{
+      text-decoration: none;
+      color:black;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const quantityInputs = document.querySelectorAll('.item-quantity input');
+      quantityInputs.forEach((input) => {
+        input.addEventListener('input', updateCartTotal);
+      });
+    });
+
+    function updateCartTotal() {
+      const cartItems = document.querySelectorAll('.cart-item');
+      let total = 0;
+
+      cartItems.forEach((item) => {
+        const priceElement = item.querySelector('.item-price');
+        const quantityInput = item.querySelector('.item-quantity input');
+        const price = parseFloat(priceElement.textContent.replace('$', ''));
+        const quantity = parseInt(quantityInput.value);
+        total += price * quantity;
+      });
+
+      const cartTotalElement = document.querySelector('.cart-total');
+      cartTotalElement.textContent = 'Total: $' + total.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav></nav>
+  
+   
+</header>
+  <div class="container">
+    <div class="cart">
+      <h1>Shopping Cart</h1>
+  
+      <div class="cart-item">
+        <img src="flat-stick-image.jpg" alt="Product Image">
+        <div class="item-details">
+          <div class="item-name">Pattern Stick</div>
+          <div class="item-price">₹467</div>
+        </div>
+        <div class="item-quantity">
+          <input type="number" value="1">
+        </div>
+      </div>
+  
+      <div class="cart-item">
+        <img src="images (31).jpeg" alt="Product Image">
+        <div class="item-details">
+          <div class="item-name">Flat stick</div>
+          <div class="item-price">₹350</div>
+        </div>
+        <div class="item-quantity">
+          <input type="number" value="2">
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="images (50).jpeg" alt="Product Image">
+        <div class="item-details">
+          <div class="item-name">Pickup stick</div>
+          <div class="item-price">₹500</div>
+        </div>
+        <div class="item-quantity">
+          <input type="number" value="1">
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="rigid-heedle-stick-image.jpg" alt="Product Image">
+        <div class="item-details">
+          <div class="item-name">Rigid Heedle stick</div>
+          <div class="item-price">₹500</div>
+        </div>
+        <div class="item-quantity">
+          <input type="number" value="1">
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="wire-heedle-stick-image.jpg" alt="Product Image">
+        <div class="item-details">
+          <div class="item-name">Wire Heedle stick</div>
+          <div class="item-price">₹200</div>
+        </div>
+        <div class="item-quantity">
+          <input type="number" value="1">
+        </div>
+      </div>
+  
+      <div class="cart-total">
+        Total: ₹0.00
+      </div>
+    </div>
+  
+    <div class="payment">
+      <div class="payment-page">
+        <h2>Payment Details</h2>
+
+        <div class="payment-methods">
+          <img src="/payment/payment/gpay.jpeg" alt="Google Pay">
+          <img src="/payment/payment/mastercard.jpg" alt="Mastercard">
+          <img src="/payment/payment/visa.jpg" alt="visa" >
+          
+        </div>
+        <form>
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" required>
+    
+          <label for="card-name">Cardholder Name</label>
+          <input type="text" id="card-name" required>
+    
+          <label for="expiry-date">Expiry Date</label>
+          <input type="text" id="expiry-date" required>
+    
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" required>
+    
+          <center><a href="/success/p.html">Submit</a></center>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

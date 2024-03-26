@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+        font-family: 'Libre Baskerville', serif;
+    }
+    body{
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding:20px;
+        background:  #fcfdfd;
+    }
+   
+    
+      
+    .container{
+             
+        max-width: 700px;
+        width: 100%;
+        font-size: 1.2rem;
+        margin: 30px;
+        background: white;
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px ;
+    }
+    .container header{
+        font-size: 2rem;
+        padding-bottom: 1px;
+        font-weight: 5000;
+       
+    }
+    .container .form{
+        margin-top: 30px;
+    }
+    .form .input-box{
+        width: 100%;
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+    .input-box label{
+        color: black;
+    }
+    .form :where(.input-box input,.select-box){
+        position: relative;
+        height: 50px;
+        width: 100%;
+        outline: none;
+        font-size: 1.2rem;
+        color: rgb(36, 35, 35);
+        margin-top: 8px;
+        border: 1px solid;
+        border-radius: 6px;
+        padding: 0 15px;
+    }
+  #flex{
+    display: flex;
+  }
+  
+    
+    .form .column{
+        display: flex;
+        column-gap: 15px;
+    }
+  
+    .form button{
+        height: 55px;
+        width: 100%;
+        font-size: 3rem;
+        font-weight: 400;
+        border: none;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-radius: 6px;
+        background-color: rgb(252, 238, 48);
+    }
+    .form button:hover{
+        background-color: aqua;
+    }
+    .file .input
+    {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 1.1rem;
+
+    }
+    #payment img{
+        margin: 50px;
+        border: 2px dashed black;
+        border-radius: 30px;
+    }
+  
+           
+</style>
+<body><center>
+    <img src="Picsart_23-07-09_22-42-10-020.jpg"width="400px"></center>
+    <section id="flex">
+    <section class="container">
+        <center> <header style="color: rgb(255, 187, 0);"><b>Deliver To</b></header><br></center> 
+        <h1>Person 1</h1>
+        <form onsubmit="sendEmail(); reset(); return false;" class="form" >
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text"placeholder="Enter Full Name"name="FullName" required/>
+            </div>
+           
+                <div class="input-box">
+                    <label>Address 1</label>
+                    <input type="text"placeholder="Enter your street address"name="Address"required/>    
+                    <div class="column">
+                    <input type="text"placeholder="Enter your city"name="City"required />
+                    <input type="text"placeholder="Enter your district"name="District"required />
+                    <input type="text"placeholder="Enter your state"name="State"required/></div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Phone No-1</label>
+                            <input type="number"placeholder="Enter the Mobile Number1"name="PhoneNo: 1" required/>
+                        </div>
+                        <div class="input-box">
+                            <label>Phone No-2</label>
+                            <input type="number"placeholder="Enter the Mobile Number1"name="PhoneNo: 2"/>
+                        </div></div></div>
+            <button id="btn" onclick="openPopup">Submit</button></form>
+    </section>
+    <section class="container">
+      <center> <header style="color: rgb(255, 187, 0);"><b>Deliver To</b></header><br></center> 
+        <h1>Person 2</h1>
+        <form method="POST" class="form" >
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text"placeholder="Enter Full Name"name="FullName" required/>
+            </div>
+           
+                <div class="input-box">
+                    <label>Address 2</label>
+                    <input type="text"placeholder="Enter your street address1"name="Address"required/>    
+                    <div class="column">
+                    <input type="text"placeholder="Enter your city"name="City"required />
+                    <input type="text"placeholder="Enter your district"name="District"required />
+                    <input type="text"placeholder="Enter your state"name="State"required/></div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Phone No-1</label>
+                            <input type="number"placeholder="Enter the Mobile Number1"name="PhoneNo: 1" required/>
+                        </div>
+                        <div class="input-box">
+                            <label>Phone No-2</label>
+                            <input type="number"placeholder="Enter the Mobile Number1"name="PhoneNo: 2"/>
+                        </div></div>
+            <button id="btn" onclick="openPopup">Submit</button></form>
+    </section>
+</section>
+<div id="payment">
+  <center> <a href="/payment/payment/powerloom/V Belt/vbelt.html"><img src="Picsart_23-07-09_23-23-18-989.jpg"width="520px"></a></center>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(){
+        Email.send({
+    Host : "smtp.gmail.com",
+    Username : "username",
+    Password : "password",
+    To : 'nagasharmila.p2021cce@sece.ac.in',
+    From : document.getElementById("email").value,
+    Subject : "Delivery Address",
+    Body : "Name: " + document.getElementById("FullName").value
+    + "<br> Address: " + document.getElementById("Address").value
+    + "<br> City: "+document.getElementById("City").value
+    + "<br> District: "+document.getElementById("District").value
+    + "<br> State: "+document.getElementById("State").value
+    + "<br> PhoneNumber 1: "+document.getElementById("PhoneNo: 1").value
+    + "<br> PhoneNumber 2: "+document.getElementById("PhoneNo: 2").value
+
+}).then(
+  message => alert("Details Sent Successfully")
+);
+    }
+  </script>
+    </body>
+</html>
